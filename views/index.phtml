@@ -1,0 +1,16 @@
+<!Doctype html>
+<html>
+    <head>
+    </head>
+    <body>
+        <ul>
+            <?php foreach ($communities->getCommunities() as $community): /** @var $community Application\Community */ ?>
+                <li>
+                    <?= $community->getName() ?>
+                    <ul>
+                    </ul>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    </body>
+</html>
