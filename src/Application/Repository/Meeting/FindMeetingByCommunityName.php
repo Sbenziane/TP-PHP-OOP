@@ -8,5 +8,5 @@ use Application\Collection\MeetingCollection;
 
 interface FindMeetingByCommunityName
 {
-    public function fetchByCommunityName() : MeetingCollection;
+    public function fetchByCommunityName() : ?MeetingCollection;
 }

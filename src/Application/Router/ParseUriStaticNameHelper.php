@@ -38,12 +38,14 @@ final class ParseUriStaticNameHelper implements ParseUriHelper
         }
 
         if ($requestUri === '/meeting') {
+            $requestUriParams = explode('/', $requestUri);
+            $_GET['meeting'] = urldecode($requestUriParams[2]);
             return MeetingController::class;
         }
 
         if (preg_match('#/meeting/.*#', $requestUri)) {
             $requestUriParams = explode('/', $requestUri);
-            $_GET['name'] = urldecode($requestUriParams[2]);
+            $_GET['meeting'] = urldecode($requestUriParams[2]);
             return MeetingController::class;
         }		
 
@@ -65,8 +67,8 @@ final class ParseUriStaticNameHelper implements ParseUriHelper
             $requestUriParams = explode('/', $requestUri);
             $_GET['name'] = urldecode($requestUriParams[2]);
             return OrganizerController::class;
-        }		
-		
+        }
+
         return IndexController::class;
     }
 }

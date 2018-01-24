@@ -16,24 +16,28 @@ final class Meeting
 	private $title;
 	private $description;
 	private $date_start;
-	private $time_start
+	private $time_start;
 	private $date_end;
 	private $time_end;
 	private $community;
 
     public function __construct(string $title, string $description, string $date_start, string $time_start, string $date_end, string $time_end, string $community)
     {
-		$dateS = new \DateTimeImmutable();
-		$dateS->setDate($date_start);
-		$dateS->setTime($time_start);
-		$dateE = new \DateTimeImmutable();
-		$dateE->setDate($date_end);
-		$dateE->setTime($time_end);		
+
+		$dateS = new \DateTimeImmutable($date_start);
+		//$dateS->setTime($time_start);
+		$dateE = new \DateTimeImmutable($date_end);
+		//$dateE->setTime($time_end);
         $this->title = $title;
 		$this->description = $description;
 		$this->date_start = $dateS;
 		$this->date_end = $dateE;
 		$this->community = $community;
+    }
+
+    public function getName() : string
+    {
+        return $this->title;
     }
 
     public function getTitle(): string

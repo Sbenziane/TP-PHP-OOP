@@ -22,6 +22,7 @@ final class MeetingController
     public function indexAction() : string
     {
         $searchName = $_GET['meeting'] ?? '';
+
         $selectedMeeting = $this->meetingRepository->findByName($searchName);
 
         if ($selectedMeeting === null) {

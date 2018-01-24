@@ -46,9 +46,9 @@ final class PdoMeetingRepository implements MeetingRepository
     public function findByName(string $title = '') : ?Meeting
     {
         $statement = $this->database->prepare(
-            'SELECT id as id, title as Title, description as Description, date_start as DateStart, date_end as DateEnd, community_id as communityID FROM meetings WHERE title = :title;'
+            'SELECT id as id, title as title, description as description, date_start as dateStart, date_end as dateEnd, community_id as communityID FROM meetings WHERE title = :title;'
         );
-        $statement->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, Meeting::class, ['', '']);
+        $statement->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, Meeting::class, ['', '', '','','','','']);
         $statement->execute([':title' => $title]);
 
         if (!$meeting = $statement->fetch()) {
